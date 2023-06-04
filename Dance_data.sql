@@ -16,29 +16,29 @@ CREATE TABLE competition_pool (
 );
 
 CREATE TABLE podium (
-	id INT NOT NULL,
+    id INT NOT NULL,
     placement VARCHAR(5) NOT NULL,
     FOREIGN KEY (id) REFERENCES dancers(id)
 );
 
 CREATE TABLE activity (
-	id INT NOT NULL,
+    id INT NOT NULL,
     event_date DATE NOT NULL
 );
 
 CREATE TABLE sponsorship (
-	id INT NOT NULL,
+    id INT NOT NULL,
     sponsor_name VARCHAR(50) NOT NULL,
     pay INT,
     FOREIGN KEY (id) REFERENCES dancers(id)
 );
 
 CREATE TABLE sales (
-	seller_id INT NOT NULL,
+    seller_id INT NOT NULL,
     tickets_sold INT NOT NULL,
     sales_date DATE NOT NULL,
     price INT NOT NULL,
-	FOREIGN KEY (seller_id) REFERENCES dancers(id) 
+    FOREIGN KEY (seller_id) REFERENCES dancers(id) 
 );
 
 
