@@ -155,7 +155,7 @@ SELECT(
 	COUNT(*)
 	FROM competitors
 	INNER JOIN results
-	on results.winner = competitors.id
+	ON results.winner = competitors.id
 	WHERE weight_class LIKE '1')
 /
 	(
@@ -172,7 +172,7 @@ AS 'average amount of wins in weight class';
 SELECT  weight_classes.weight_class, COUNT(*) as Competitors
 FROM weight_classes
 INNER JOIN competitors
-on weight_classes.id = competitors.weight_class
+ON weight_classes.id = competitors.weight_class
 GROUP BY weight_classes.weight_class
 ORDER BY Competitors DESC
 LIMIT 3;
@@ -217,7 +217,7 @@ WHERE weight_class LIKE '2' AND submission IS NULL;
 SELECT weight_classes.weight_class, COUNT(*) as '# of Competitors'
 FROM weight_classes
 INNER JOIN competitors
-	on weight_classes.id = competitors.weight_class
+ON weight_classes.id = competitors.weight_class
 GROUP BY weight_classes.weight_class;
  
 -- *************************************** See competitors whose first names start with a 'B' ***************************************
