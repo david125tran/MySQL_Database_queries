@@ -6,47 +6,47 @@ USE fishing_trip;
 
 CREATE TABLE fishing_poles(
 	id INTEGER AUTO_INCREMENT PRIMARY KEY,
-    brand VARCHAR(50) NOT NULL
+	brand VARCHAR(50) NOT NULL
 );
 
 CREATE TABLE fish (
 	id INTEGER AUTO_INCREMENT PRIMARY KEY,
-    fish_name VARCHAR(100) NOT NULL
+	fish_name VARCHAR(100) NOT NULL
 );
 
 CREATE TABLE bait (
 	id INTEGER AUTO_INCREMENT PRIMARY KEY,
-    bait_name VARCHAR(50) NOT NULL
+	bait_name VARCHAR(50) NOT NULL
 );
 
 CREATE TABLE boats (
 	id INTEGER AUTO_INCREMENT PRIMARY KEY,
-    brand VARCHAR(50) NOT NULL,
-    boat_name VARCHAR(50) NOT NULL,
-    cost_usd INTEGER NOT NULL
+	brand VARCHAR(50) NOT NULL,
+	boat_name VARCHAR(50) NOT NULL,
+	cost_usd INTEGER NOT NULL
 );
 
 CREATE TABLE fishers (
 	id INTEGER AUTO_INCREMENT PRIMARY KEY,
-    full_name VARCHAR(100) NOT NULL,
-    age INT NOT NULL,
-    fishing_pole INTEGER NOT NULL,
-    boat_owned INTEGER, 
-    FOREIGN KEY (fishing_pole) REFERENCES fishing_poles(id),
-    FOREIGN KEY (boat_owned) REFERENCES boats(id)
+	full_name VARCHAR(100) NOT NULL,
+	age INT NOT NULL,
+	fishing_pole INTEGER NOT NULL,
+	boat_owned INTEGER, 
+	FOREIGN KEY (fishing_pole) REFERENCES fishing_poles(id),
+	FOREIGN KEY (boat_owned) REFERENCES boats(id)
 );
 
 CREATE TABLE catches (
 	id INTEGER AUTO_INCREMENT PRIMARY KEY,
-    fish INTEGER NOT NULL,
-    size_inches INTEGER NOT NULL,
-    weight_lbs INTEGER NOT NULL,
-    time_caught TIME,
-    bait_type INTEGER NOT NULL,
-    fisherman INTEGER NOT NULL,
-    FOREIGN KEY (fish) REFERENCES fish (id),
-    FOREIGN KEY (bait_type) REFERENCES bait(id),
-    FOREIGN KEY (fisherman) REFERENCES fishers(id)
+	fish INTEGER NOT NULL,
+	size_inches INTEGER NOT NULL,
+	weight_lbs INTEGER NOT NULL,
+	time_caught TIME,
+	bait_type INTEGER NOT NULL,
+	fisherman INTEGER NOT NULL,
+	FOREIGN KEY (fish) REFERENCES fish (id),
+	FOREIGN KEY (bait_type) REFERENCES bait(id),
+	FOREIGN KEY (fisherman) REFERENCES fishers(id)
 );
 -- *************************************** Insert Data ***************************************
 INSERT INTO fishing_poles (brand) VALUES ('Abu Garcia'), ('Daiwa'), ('Okuma Fishing'), ('Orvis'), ('Penn'), ('Shimano');
